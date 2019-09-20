@@ -8,4 +8,5 @@ it('should bail if a successful test asynchronously fails', function(done) {
 });
 
 it('should not actually get run', function () {
+  throw new Error('should never throw');
 });

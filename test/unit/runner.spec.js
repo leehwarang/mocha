@@ -831,15 +831,16 @@ describe('Runner', function() {
               ]).and('was called once');
             });
 
-            it('should notify run has ended', function() {
+            it('should bail the current suite without end event', function() {
               expect(
                 function() {
                   runner.uncaught(err);
                 },
-                'to emit from',
+                'not to emit from',
                 runner,
                 'end'
               );
+              expect(runner.suite._bail, 'to be', true);
             });
           });
 
